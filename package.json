@@ -1,0 +1,11 @@
+{
+  "name": "game-store",
+  "version": "1.0.0",
+  "description": "A simple backend project simulating a video game store using vanilla Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felipe Filho",
+  "license": "ISC"
+}

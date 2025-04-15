@@ -1,0 +1,57 @@
+[
+    {
+      "id": 0,
+      "title": "Elden Ring",
+      "genre": "Action RPG",
+      "price": "59.99",
+      "platform": "PC, PS5, Xbox",
+      "rating": "9.5",
+      "image": "🗡️",
+      "description": "An epic open-world fantasy game developed by FromSoftware.",
+      "inStock": true
+    },
+    {
+      "id": 1,
+      "title": "Animal Crossing",
+      "genre": "Simulation",
+      "price": "49.99",
+      "platform": "Nintendo Switch",
+      "rating": "9.0",
+      "image": "🌴",
+      "description": "Build your island life with adorable animal villagers.",
+      "inStock": false
+    },
+    {
+      "id": 2,
+      "title": "God of War: Ragnarok",
+      "genre": "Action Adventure",
+      "price": "69.99",
+      "platform": "PS5",
+      "rating": "9.8",
+      "image": "⚔️",
+      "description": "Join Kratos and Atreus in an epic Norse journey of gods and monsters.",
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "title": "Minecraft",
+      "genre": "Sandbox",
+      "price": "26.95",
+      "platform": "PC, Xbox, PlayStation, Switch",
+      "rating": "9.2",
+      "image": "⛏️",
+      "description": "Build, explore, and survive in an infinite blocky world of creativity.",
+      "inStock": true
+    },
+    {
+      "id": 4,
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "genre": "Action Adventure",
+      "price": "69.99",
+      "platform": "Nintendo Switch",
+      "rating": "9.7",
+      "image": "🛡️",
+      "description": "Explore a vast open world as Link in the critically acclaimed Zelda series.",
+      "inStock": false
+    }
+  ]

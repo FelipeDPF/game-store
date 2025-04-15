@@ -1,0 +1,32 @@
+<figure class="card">
+    <div class="card__emoji">{%IMAGE%}</div>
+    <div class="card__title-box">
+      <h2 class="card__title">{%GAMENAME%}</h2>
+    </div>
+  
+    <div class="card__details">
+      <div class="card__detail-box {%NOT_AVAILABLE%}">
+        <h6 class="card__detail card__detail--stock">In Stock</h6>
+      </div>
+  
+      <div class="card__detail-box">
+        <h6 class="card__detail">Platform: {%PLATFORM%}</h6>
+      </div>
+  
+      <div class="card__detail-box">
+        <h6 class="card__detail">Genre: {%GENRE%}</h6>
+      </div>
+  
+      <div class="card__detail-box">
+        <h6 class="card__detail">Rating: {%RATING%}</h6>
+      </div>
+  
+      <div class="card__detail-box">
+        <h6 class="card__detail card__detail--price">{%PRICE%}€</h6>
+      </div>
+    </div>
+  
+    <a class="card__link" href="/product?id={%ID%}">
+      <span>Detail <i class="emoji-right">👉</i></span>
+    </a>
+  </figure>
