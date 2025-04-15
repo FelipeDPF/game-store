@@ -1,6 +1,11 @@
-### Display game products, descriptions, prices, genres, platforms, and more!
-1. Project Structure
+# 🎮 Game Store
 
+A simple Node.js app to display game products, descriptions, prices, genres, platforms, and more!
+
+
+## 🗂 Project Structure
+
+```
 game-store/
 ├── dev-data/
 │   └── data.json          ← game data (title, genre, price, description, etc.)
@@ -12,9 +17,12 @@ game-store/
 │   └── replaceTemplate.js
 ├── index.js               ← main server file
 ├── package.json
+```
 
-2. Sample Data (data.json)
 
+## 📦 Sample Data (data.json)
+
+```json
 [
     {
       "id": 0,
@@ -23,8 +31,9 @@ game-store/
       "price": "59.99",
       "platform": "PC, PS5, Xbox",
       "rating": "9.5",
-      "image": "🛡️",
-      "description": "An epic open-world fantasy game developed by FromSoftware."
+      "image": "🗡️",
+      "description": "An epic open-world fantasy game developed by FromSoftware.",
+      "inStock": true
     },
     {
       "id": 1,
@@ -33,25 +42,25 @@ game-store/
       "price": "49.99",
       "platform": "Nintendo Switch",
       "rating": "9.0",
-      "image": "🏝️",
-      "description": "Build your island life with adorable animal villagers."
-    }
+      "image": "🌴",
+      "description": "Build your island life with adorable animal villagers.",
+      "inStock": false
+    },
   ]
+```
 
-3. Template Placeholders
+## 🧩 Template Placeholders
 
-In template-card.html, template-product.html, and template-overview.html, use placeholders like:
+These placeholders are used in the HTML templates:
 
-{%TITLE%}, {%GENRE%}, {%PRICE%}, {%PLATFORM%}, {%IMAGE%}, {%DESCRIPTION%}, {%ID%}
+```{%TITLE%}, {%GENRE%}, {%PRICE%}, {%PLATFORM%}, {%IMAGE%}, {%DESCRIPTION%}, {%ID%}```
 
-4. Pages
- • / or /overview → Show all games
- • /product?id=0 → Show detailed page for a specific game
- • /api → Return raw JSON
- • Custom 404 for unknown routes
+## 🔀 Pages
+![Screenshot 2025-04-15 at 4 09 18 PM](https://github.com/user-attachments/assets/66a370e2-9ab9-48f8-81b8-62a04ab1d2bc)
 
-5. Bonus Ideas
- • Add filtering or sorting options (by genre, platform, rating, etc.)
- • Add a mock shopping cart or wishlist
- • Include game cover images using actual emojis or URLs
- • Use slugify to create URL-friendly paths like /product/elden-ring
+
+## 💡 Bonus Ideas
+	•	Add filtering or sorting (by genre, platform, rating, etc.)
+	•	Add a mock cart or wishlist
+	•	Include game cover images using emojis or RAWG API
+	•	Use slugify to create clean URLs like /product/elden-ring
