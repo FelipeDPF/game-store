@@ -9,7 +9,7 @@ module.exports = (temp, game) => {
     output = output.replace(/{%DESCRIPTION%}/g, game.description);
     output = output.replace(/{%ID%}/g, game.id);
   
-    if (!game.inStock) output = output.replace(/{%NOT_AVAILABLE%}/g, 'not-available');
+    output = output.replace(/{%NOT_AVAILABLE%}/g, game.inStock ? 'in-stock' : 'not-available');
   
     return output;
   };
