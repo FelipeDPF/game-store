@@ -14,10 +14,6 @@ const tempCard = fs.readFileSync(
   `${__dirname}/templates/template-card.html`,
   'utf-8'
 );
-const tempProduct = fs.readFileSync(
-  `${__dirname}/templates/template-product.html`,
-  'utf-8'
-);
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
@@ -30,7 +26,22 @@ const dataObj = JSON.parse(data);
 const server = http.createServer((req, res) => {
   const { query, pathname } = url.parse(req.url, true);
 
-  // Overview page
+  // Serve static CSS files
+if (pathname.startsWith('/styles/')) {
+  const filePath = path.join(__dirname, pathname);
+  fs.readFile(filePath, (err, file) => {
+    if (err) {
+      res.writeHead(404);
+      res.end('CSS file not found');
+    } else {
+      res.writeHead(200, { 'Content-Type': 'text/css' });
+      res.end(file);
+    }
+  });
+  return;
+}
+
+  // Overview Page
   if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, { 'Content-type': 'text/html' });
 
@@ -41,19 +52,12 @@ const server = http.createServer((req, res) => {
 
     res.end(output);
 
-    // Product page
-  } else if (pathname === '/product') {
-    res.writeHead(200, { 'Content-type': 'text/html' });
-    const product = dataObj[query.id];
-    const output = replaceTemplate(tempProduct, product);
-    res.end(output);
-
     // API
   } else if (pathname === '/api') {
     res.writeHead(200, { 'Content-type': 'application/json' });
     res.end(data);
 
-    // Not found
+    // Not Found
   } else {
     res.writeHead(404, {
       'Content-type': 'text/html',

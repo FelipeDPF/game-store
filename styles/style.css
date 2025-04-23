@@ -1,0 +1,241 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5rem 5rem 10rem;
+    line-height: 1.7;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #555;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #0a2a43, #003a57);
+}
+
+h1 {
+    font-family: 'Megrim', sans-serif;
+    font-size: 6rem;
+    color: white;
+    transform: skewY(-5deg);
+    text-align: center;
+    position: relative;
+    word-spacing: 3px;
+}
+
+h1::before {
+    content: '';
+    display: block;
+    height: 65%;
+    width: 49%;
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    background: linear-gradient(to bottom, #162844e9, #00b9e3);
+    opacity: 0.8;
+    z-index: -1;
+    transform: skewY(370deg) translate(-50%, -50%);
+}
+
+.container {
+    width: 110rem;
+    margin: 0 auto;
+}
+
+.cards-container {
+    margin-top: 8rem;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.75);
+    /* semi-transparent for glassy look */
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    /* optional glassmorphism */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.card_image {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.card_body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card_title {
+    font-size: 2.4rem;
+    color: #fff;
+}
+
+.card_info {
+    color: #ccc;
+    font-size: 1.4rem;
+}
+
+.card_link {
+    background-color: #00b9e3;
+    color: white;
+    font-weight: bold;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card_link:hover {
+    background-color: #00a2c5;
+    transform: scale(1.05);
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.2);
+}
+
+.card_more {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    color: #eee;
+    /* updated color for readability */
+}
+
+.card_more.hidden {
+    display: none;
+}
+
+.card.expanded {
+    grid-column: span 1;
+    grid-row: span 2;
+    transition: all 0.3s ease-in-out;
+}
+
+.card_cta {
+    background-color: #00b9e3;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+}
+
+.card_cta:hover {
+    background-color: #009dc0;
+}
+
+.card_link.see-more-btn {
+    background-color: #4fc3f7;
+    color: #000;
+    padding: 0.3rem 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.card_link.see-more-btn:hover {
+    background-color: #29b6f6;
+}
+
+.view-toggle {
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.view-toggle button {
+    font-size: 2rem;
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.view-toggle button:hover {
+    opacity: 1;
+}
+
+.cards-container.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.cards-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rating-value {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.rating-gold {
+    color: #f5c518;
+    /* gold for 7.5+ */
+}
+
+.rating-red {
+    color: #ff3b3b;
+    /* red for < 5 */
+}
+
+.rating-neutral {
+    color: #ccc;
+    /* subtle gray for neutral */
+}
+
+/* In Stock indicator! */
+.card_available {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    height: 3rem;
+    width: 8rem;
+    background-image: linear-gradient(to bottom, #16284e, #a92b2b);
+    border-radius: 50%;
+    transform: rotate(15deg);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card_available h5 {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  .card_available.not-available {
+    display: none;
+  }
