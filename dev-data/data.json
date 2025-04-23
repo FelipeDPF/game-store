@@ -6,7 +6,7 @@
       "price": "59.99",
       "platform": "PC, PS5, Xbox",
       "rating": "9.5",
-      "image": "🗡️",
+      "image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg",
       "description": "An epic open-world fantasy game developed by FromSoftware.",
       "inStock": true
     },
@@ -17,7 +17,7 @@
       "price": "49.99",
       "platform": "Nintendo Switch",
       "rating": "9.0",
-      "image": "🌴",
+      "image": "https://media.rawg.io/media/games/9dc/9dc9fbd2c2054a3a9b7c33a906546bea.jpg",
       "description": "Build your island life with adorable animal villagers.",
       "inStock": false
     },
@@ -28,7 +28,7 @@
       "price": "69.99",
       "platform": "PS5",
       "rating": "9.8",
-      "image": "⚔️",
+      "image": "https://media.rawg.io/media/screenshots/3c4/3c4c51b66741363d83b56ce66b1240ec.jpg",
       "description": "Join Kratos and Atreus in an epic Norse journey of gods and monsters.",
       "inStock": true
     },
@@ -39,7 +39,7 @@
       "price": "26.95",
       "platform": "PC, Xbox, PlayStation, Switch",
       "rating": "9.2",
-      "image": "⛏️",
+      "image": "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg",
       "description": "Build, explore, and survive in an infinite blocky world of creativity.",
       "inStock": true
     },
@@ -50,8 +50,19 @@
       "price": "69.99",
       "platform": "Nintendo Switch",
       "rating": "9.7",
-      "image": "🛡️",
+      "image": "https://media.rawg.io/media/games/884/884d12f527a9a12b5e486ee1b79ecf7f.jpeg",
       "description": "Explore a vast open world as Link in the critically acclaimed Zelda series.",
+      "inStock": false
+    },
+    {
+      "id": 5,
+      "title": "The Lord of the Rings: Gollum",
+      "genre": "Action Adventure",
+      "price": "9.99",
+      "platform": "PC, Xbox, PlayStation, Switch",
+      "rating": "1.3",
+      "image": "https://media.rawg.io/media/games/470/470fb8435cdea25bda1126e0b8e0a3b0.jpg",
+      "description": "Based on The Lord of the Rings, the games story follows the lesser explored character of Gollum before the events of The Lord of the Rings and The Hobbit.",
       "inStock": false
     }
   ]
