@@ -2,37 +2,39 @@
 
 A simple Node.js app to display game products, descriptions, prices, genres, platforms, and more!
 
-![Game Store Demo](./demo.gif)
+![Game Store Demo](./demo-2.gif)
 
 ## 🗂 Project Structure
 
 ```
 game-store/
 ├── dev-data/
-│   └── data.json          ← game data (title, genre, price, description, etc.)
-├── templates/
-│   ├── template-card.html
-│   ├── template-overview.html
-│   └── template-product.html
+│   └── data.json             # game data (title, genre, price, description, etc.)
 ├── modules/
-│   └── replaceTemplate.js
-├── index.js               ← main server file
+│   └── replaceTemplate.js    # HTML template placeholder replacer
+├── styles/
+│   └── style.css             # main CSS file
+├── templates/
+│   ├── template-card.html    # HTML template for each game card
+│   └── template-overview.html # main overview page
+├── index.js                  # main server file
 ├── package.json
+└── README.md
 ```
 
 
-## 📦 Sample Data (data.json)
+## 🗂 Sample Data (data.json)
 
 ```json
 [
-    {
+   {
       "id": 0,
       "title": "Elden Ring",
       "genre": "Action RPG",
       "price": "59.99",
       "platform": "PC, PS5, Xbox",
       "rating": "9.5",
-      "image": "🗡️",
+      "image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg",
       "description": "An epic open-world fantasy game developed by FromSoftware.",
       "inStock": true
     },
@@ -43,7 +45,7 @@ game-store/
       "price": "49.99",
       "platform": "Nintendo Switch",
       "rating": "9.0",
-      "image": "🌴",
+      "image": "https://media.rawg.io/media/games/9dc/9dc9fbd2c2054a3a9b7c33a906546bea.jpg",
       "description": "Build your island life with adorable animal villagers.",
       "inStock": false
     },
@@ -54,14 +56,25 @@ game-store/
 
 These placeholders are used in the HTML templates:
 
-```{%TITLE%}, {%GENRE%}, {%PRICE%}, {%PLATFORM%}, {%IMAGE%}, {%DESCRIPTION%}, {%ID%}```
+```{%TITLE%}, {%GENRE%}, {%PRICE%}, {%PLATFORM%}, {%IMAGE%}, {%DESCRIPTION%}, {%ID%}, {%RATING%}, {%NOT_AVAILABLE%}```
 
 ## 🔀 Pages
-![Screenshot 2025-04-15 at 4 09 18 PM](https://github.com/user-attachments/assets/66a370e2-9ab9-48f8-81b8-62a04ab1d2bc)
+	•	/overview – Main page with game cards
+	•	/api – Returns raw JSON data
+
+## ✨ Features
+
+✅ Game cover image from RAWG
+
+✅ Expanded layout with “See more” button toggle
+
+✅ Styled rating system with emoji support
+
+✅ In-stock badge based on availability
 
 
 ## 💡 Bonus Ideas
 	•	Add filtering or sorting (by genre, platform, rating, etc.)
 	•	Add a mock cart or wishlist
-	•	Include game cover images using emojis or RAWG API
-	•	Use slugify to create clean URLs like /product/elden-ring
+	•	Implement live RAWG API fetching for dynamic data
+	•	Use slugs for clean URLs like /product/elden-ring
