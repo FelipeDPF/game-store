@@ -1,32 +1,22 @@
 <figure class="card">
-    <div class="card__emoji">{%IMAGE%}</div>
-    <div class="card__title-box">
-      <h2 class="card__title">{%GAMENAME%}</h2>
+  <div class="card_available {%NOT_AVAILABLE%}">
+    <h5>In Stock</h5>
+  </div>
+  <img class="card_image" src="{%IMAGE%}" alt="{%GAMENAME%} cover" />
+  <div class="card_body">
+    <h2 class="card_title">{%GAMENAME%}</h2>
+    <p class="card_info">
+      {%GENRE%} | Rating:
+      <span class="rating-value" data-rating="{%RATING%}">{%RATING%}</span>
+    </p>
+
+    <a class="card_link see-more-btn" href="#">See more</a>
+
+    <div class="card_more hidden">
+      <p><strong>Platform:</strong> {%PLATFORM%}</p>
+      <p><strong>Price:</strong> {%PRICE%}€</p>
+      <p><strong>Description:</strong> {%DESCRIPTION%}</p>
+      <a class="card_cta" href="#">🛒 Add to shopping cart</a>
     </div>
-  
-    <div class="card__details">
-      <div class="card__detail-box {%NOT_AVAILABLE%}">
-        <h6 class="card__detail card__detail--stock">In Stock</h6>
-      </div>
-  
-      <div class="card__detail-box">
-        <h6 class="card__detail">Platform: {%PLATFORM%}</h6>
-      </div>
-  
-      <div class="card__detail-box">
-        <h6 class="card__detail">Genre: {%GENRE%}</h6>
-      </div>
-  
-      <div class="card__detail-box">
-        <h6 class="card__detail">Rating: {%RATING%}</h6>
-      </div>
-  
-      <div class="card__detail-box">
-        <h6 class="card__detail card__detail--price">{%PRICE%}€</h6>
-      </div>
-    </div>
-  
-    <a class="card__link" href="/product?id={%ID%}">
-        <span>SEE MORE  <i class="emoji-right">🔍</i></span>
-    </a>
-  </figure>
+  </div>
+</figure>

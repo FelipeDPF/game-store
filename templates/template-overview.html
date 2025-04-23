@@ -8,190 +8,94 @@
     <link href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900" rel="stylesheet" />
     <link rel="icon"
         href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <title>GAME STORE</title>
 
-    <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: inherit;
-        }
-
-        html {
-            font-size: 62.5%;
-            box-sizing: border-box;
-        }
-
-        body {
-            padding: 5rem 5rem 10rem;
-            line-height: 1.7;
-            font-family: 'Nunito Sans', sans-serif;
-            color: #555;
-            min-height: 100vh;
-            background: linear-gradient(to bottom right, #162844e9, #00b9e3);
-        }
-
-        h1 {
-            font-family: 'Megrim', sans-serif;
-            font-size: 6rem;
-            color: white;
-            transform: skewY(-5deg);
-            text-align: center;
-            position: relative;
-            word-spacing: 3px;
-        }
-
-        h1::before {
-            content: '';
-            display: block;
-            height: 65%;
-            width: 49%;
-            position: absolute;
-            top: 105%;
-            left: 50%;
-            background: linear-gradient(to bottom, #162844e9, #00b9e3);
-            opacity: 0.8;
-            z-index: -1;
-            transform: skewY(370deg) translate(-50%, -50%);
-        }
-
-        .container {
-            width: 110rem;
-            margin: 0 auto;
-        }
-
-        .cards-container {
-            margin-top: 8rem;
-        }
-
-        .card {
-            background: white;
-            box-shadow: 0 2rem 6rem 1rem rgba(0, 0, 0, 0.15);
-            margin-bottom: 5rem;
-            transform: skewX(-20deg);
-            display: flex;
-            transition: all 0.5s;
-        }
-
-        .card__emoji {
-            font-size: 5.5rem;
-            line-height: 1.2;
-            padding: 1.5rem 6rem 0.5rem 1.5rem;
-            letter-spacing: -4rem;
-            transform: skewX(20deg);
-        }
-
-        .card__title-box {
-            background: linear-gradient(to bottom, #162844e9, #00b9e3);
-            margin-right: auto;
-            display: flex;
-            align-items: center;
-            padding: 0 3rem;
-        }
-
-        .card__title {
-            font-family: 'Megrim', sans-serif;
-            color: white;
-            font-size: 3.25rem;
-            transform: skewX(20deg);
-        }
-
-
-        .card__details {
-            display: flex;
-        }
-
-        .card__detail-box {
-            align-self: stretch;
-            border-right: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-        }
-
-        .card__detail-box:last-child {
-            border: none;
-        }
-
-        .card__detail {
-            font-weight: 400;
-            font-size: 1.8rem;
-            transform: skewX(20deg);
-            padding: 1.75rem;
-        }
-
-        .card__detail--available {
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 1.9rem;
-            background-image: linear-gradient(to right, #162844e9, #00b9e3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .card__detail--price {
-            font-weight: 900;
-            font-size: 1.9rem;
-        }
-
-        .card__link:link,
-        .card__link:visited {
-            flex: 0 0 auto;
-            background-color: #a92b2b;
-            color: white;
-            font-size: 1.6rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 2.5rem;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .card__link:hover,
-        .card__link:active {
-            background-color: #162844e9;
-        }
-
-        .card__link span {
-            transform: skewX(20deg);
-        }
-
-        .card:hover {
-            transform: skewX(-20deg) scale(1.08);
-            box-shadow: 0 3rem 8rem 2rem rgba(0, 0, 0, 0.15);
-        }
-
-        .emoji-left {
-            font-size: 2rem;
-            margin-right: 1rem;
-        }
-
-        .emoji-right {
-            margin-left: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .not-available {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/style.css" />
 </head>
 
 <body>
     <div class="container">
         <h1>🎮 GAME STORE 🕹️</h1>
 
-        <div class="cards-container">
+        <!-- Grid/List Toggle -->
+        <div class="view-toggle">
+            <button onclick="setView('grid')" title="Grid View">
+                <i class="fas fa-th-large"></i>
+            </button>
+            <button onclick="setView('list')" title="List View">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Card Container -->
+        <div class="cards-container grid" id="cardView">
             {%PRODUCT_CARDS%}
         </div>
     </div>
+
+    <script>
+        // Expand/collapse a single card
+        document.querySelectorAll('.see-more-btn').forEach(button => {
+            button.addEventListener('click', e => {
+                e.preventDefault();
+
+                const card = button.closest('.card');
+                const cardMore = card.querySelector('.card_more');
+
+                // Collapse all other cards
+                document.querySelectorAll('.card.expanded').forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('expanded');
+                        const otherMore = otherCard.querySelector('.card_more');
+                        if (otherMore) otherMore.classList.add('hidden');
+
+                        const otherBtn = otherCard.querySelector('.see-more-btn');
+                        if (otherBtn) otherBtn.textContent = 'See more';
+                    }
+                });
+
+                // Toggle current card
+                const isExpanding = !card.classList.contains('expanded');
+                card.classList.toggle('expanded', isExpanding);
+                cardMore.classList.toggle('hidden', !isExpanding);
+                button.textContent = isExpanding ? 'See less' : 'See more';
+            });
+        });
+
+        // Rating styling logic
+        document.querySelectorAll('.rating-value').forEach(span => {
+            const rawValue = span.getAttribute('data-rating');
+            const rating = parseFloat(rawValue);
+
+            if (rating < 5) {
+                span.innerHTML = `<span class="rating-value rating-red">💀 ${rating}</span>`;
+            } else if (rating >= 7.5) {
+                span.innerHTML = `<span class="rating-value rating-gold">⭐ ${rating}</span>`;
+            } else {
+                span.innerHTML = `<span class="rating-value rating-neutral">${rating}</span>`;
+            }
+        });
+
+        // View toggle (Grid/List)
+        function setView(mode) {
+            const container = document.getElementById('cardView');
+
+            // Reset all expanded cards when changing view
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('expanded');
+                const more = card.querySelector('.card_more');
+                if (more) more.classList.add('hidden');
+
+                const toggleBtn = card.querySelector('.see-more-btn');
+                if (toggleBtn) toggleBtn.textContent = 'See more';
+            });
+
+            container.classList.remove('grid', 'list');
+            container.classList.add(mode);
+        }
+    </script>
 </body>
 
 </html>

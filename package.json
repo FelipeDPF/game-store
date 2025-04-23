@@ -1,6 +1,6 @@
 {
   "name": "game-store",
-  "version": "1.0.0",
+  "version": "v1.1.0",
   "description": "A simple backend project simulating a video game store using vanilla Node.js.",
   "main": "index.js",
   "scripts": {
