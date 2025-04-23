@@ -2,7 +2,7 @@
 
 A simple Node.js app to display game products, descriptions, prices, genres, platforms, and more!
 
-![Game Store Demo](./demo-2.gif)
+![Game Store Demo](./demo2.gif)
 
 ## 🗂 Project Structure
 
