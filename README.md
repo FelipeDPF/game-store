@@ -50,6 +50,7 @@ These placeholders are used in the HTML templates:
 - ✅ Dynamic game fetching using RAWG search API
 - ✅ Game platform icons instead of plain text
 - ✅ Updated title/header layout and global UI styling
+- ✅ Pagination support with active/disabled styling
 
 
 ## 💡 Bonus Ideas

@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - New `fetchGamesSearch.js` utility to fetch game data dynamically via query.
 - `.env` support for securely managing RAWG API key.
 - Search bar in `template-overview.html` with query redirect logic.
+- Pagination system to support multiple result pages dynamically
 - Metascore badge system with color-coded styles (green/yellow/gray).
 - Game platform icons now replace raw platform text labels.
 - Updated overall typography and header layout for a more polished look.
