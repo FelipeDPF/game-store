@@ -5,11 +5,12 @@
  * The results are parsed and mapped into simplified game objects used for rendering.
  */
 
+require('dotenv').config();
 const https = require('https');
 
 function fetchGamesFromRAWGSearch(query, page = 1, callback) {
   // RAWG API credentials and URL
-  const apiKey = '87f01b67c3074ef9ad0fbe88b35d5ea4';
+  const apiKey = process.env.RAWG_API_KEY;
   const url = `https://api.rawg.io/api/games?search=${encodeURIComponent(query)}&page=${page}&page_size=6&key=${apiKey}`;
 
   https.get(url, res => {
