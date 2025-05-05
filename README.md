@@ -68,7 +68,7 @@ These placeholders are used in the HTML templates:
 
 ✅ Expanded layout with “See more” button toggle
 
-✅ Styled rating system with emoji support
+✅ Styled Metascore system with emoji support
 
 ✅ In-stock badge based on availability
 
