@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Megrim|Nunito+Sans:400,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon"
         href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/155/ear-of-maize_1f33d.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -17,7 +17,13 @@
 
 <body>
     <div class="container">
-        <h1>🎮 GAME STORE 🕹️</h1>
+        <div class="header-bar">
+            <h1 class="game-title">🎮 GAME STORE 🕹️</h1>
+            <div class="search-bar">
+              <input type="text" id="searchInput" class="search-input" placeholder="Search for a game..." />
+              <button onclick="searchGames()" class="search-btn">🔍</button>
+            </div>
+          </div>
 
         <!-- Grid/List Toggle -->
         <div class="view-toggle">
@@ -64,17 +70,27 @@
             });
         });
 
-        // Rating styling logic
-        document.querySelectorAll('.rating-value').forEach(span => {
-            const rawValue = span.getAttribute('data-rating');
-            const rating = parseFloat(rawValue);
+        // Metacritic styling logic
+        document.querySelectorAll('.metacritic-badge').forEach(span => {
+            const rawValue = span.getAttribute('data-metacritic');
+            const score = parseInt(rawValue);
 
-            if (rating < 5) {
-                span.innerHTML = `<span class="rating-value rating-red">💀 ${rating}</span>`;
-            } else if (rating >= 7.5) {
-                span.innerHTML = `<span class="rating-value rating-gold">⭐ ${rating}</span>`;
+            if (isNaN(score)) {
+                span.textContent = 'N/A';
+                span.style.backgroundColor = '#777';
+                return;
+            }
+
+            span.textContent = score;
+
+            if (score >= 90) {
+                span.classList.add('metacritic-green');
+            } else if (score >= 75) {
+                span.classList.add('metacritic-yellow');
+            } else if (score >= 50) {
+                span.classList.add('metacritic-yellow');
             } else {
-                span.innerHTML = `<span class="rating-value rating-neutral">${rating}</span>`;
+                span.classList.add('metacritic-red');
             }
         });
 
@@ -94,6 +110,13 @@
 
             container.classList.remove('grid', 'list');
             container.classList.add(mode);
+        }
+
+        function searchGames() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+
+            window.location.href = `/search?query=${encodeURIComponent(query)}`;
         }
     </script>
 </body>
