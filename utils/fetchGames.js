@@ -6,10 +6,11 @@
  * used by the Game Store app.
  */
 
+require('dotenv').config();
 const https = require('https');
 
 function fetchGamesFromRAWG(callback) {
-  const apiKey = '87f01b67c3074ef9ad0fbe88b35d5ea4';
+  const apiKey = process.env.RAWG_API_KEY;
   const url = `https://api.rawg.io/api/games?page_size=6&key=${apiKey}`;
 
   https.get(url, res => {
