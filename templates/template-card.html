@@ -1,21 +1,30 @@
 <figure class="card">
   <div class="card_available {%NOT_AVAILABLE%}">
-    <h5>In Stock</h5>
+    <span>In Stock</span>
   </div>
+
   <img class="card_image" src="{%IMAGE%}" alt="{%GAMENAME%} cover" />
   <div class="card_body">
     <h2 class="card_title">{%GAMENAME%}</h2>
-    <p class="card_info">
-      {%GENRE%} | Rating:
-      <span class="rating-value" data-rating="{%RATING%}">{%RATING%}</span>
-    </p>
+
+    <div class="card_top">
+      <div class="platform-icons">{%PLATFORM_ICONS%}</div>
+      <span class="metacritic-badge" data-metacritic="{%METACRITIC%}">{%METACRITIC%}</span>
+    </div>
 
     <a class="card_link see-more-btn" href="#">See more</a>
 
     <div class="card_more hidden">
-      <p><strong>Platform:</strong> {%PLATFORM%}</p>
-      <p><strong>Price:</strong> {%PRICE%}€</p>
-      <p><strong>Description:</strong> {%DESCRIPTION%}</p>
+      <div class="card_info-line"><span class="card_info-label">Genre:</span><span>{%GENRE%}</span></div>
+      <div class="card_info-line"><span class="card_info-label">Released:</span><span>{%RELEASE%}</span></div>
+      <div class="card_info-line"><span class="card_info-label">Playtime:</span><span>{%PLAYTIME%}h</span></div>
+      <div class="card_info-line"><span class="card_info-label">Ratings:</span><span>{%RATINGSCOUNT%}</span></div>
+      <div class="card_info-line">
+        <span class="card_info-label">Trailer:</span><a href="{%TRAILER%}" target="_blank">Watch</a>
+      </div>
+      <div class="card_info-line"><span class="card_info-label">Price:</span><span>{%PRICE%}</span></div>
+      <div class="card_info-line"><span class="card_info-label">Description:</span><span>{%DESCRIPTION%}</span></div>
+
       <a class="card_cta" href="#">🛒 Add to shopping cart</a>
     </div>
   </div>

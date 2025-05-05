@@ -20,30 +20,15 @@ body {
     background: radial-gradient(circle at top, #0a2a43, #003a57);
 }
 
-h1 {
-    font-family: 'Megrim', sans-serif;
-    font-size: 6rem;
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
     color: white;
-    transform: skewY(-5deg);
     text-align: center;
     position: relative;
     word-spacing: 3px;
-}
-
-h1::before {
-    content: '';
-    display: block;
-    height: 65%;
-    width: 49%;
-    position: absolute;
-    top: 105%;
-    left: 50%;
-    background: linear-gradient(to bottom, #162844e9, #00b9e3);
-    opacity: 0.8;
-    z-index: -1;
-    transform: skewY(370deg) translate(-50%, -50%);
-}
-
+  }
+  
 .container {
     width: 110rem;
     margin: 0 auto;
@@ -51,6 +36,12 @@ h1::before {
 
 .cards-container {
     margin-top: 8rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /* Important */
+
 }
 
 .card {
@@ -122,6 +113,23 @@ h1::before {
     display: none;
 }
 
+.card_info-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    font-size: 1.1rem;
+    /* increased from 1rem */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card_info-label {
+    color: #ccc;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    /* match row size */
+}
+
 .card.expanded {
     grid-column: span 1;
     grid-row: span 2;
@@ -190,52 +198,201 @@ h1::before {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
 }
 
-.rating-value {
+.cards-container.list .card {
+    width: 100%;
+    max-width: 80rem;
+}
+
+.metacritic-badge {
+    display: inline-block;
+    font-size: 1.3rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
 }
 
-.rating-gold {
-    color: #f5c518;
-    /* gold for 7.5+ */
+.metacritic-green {
+    background-color: #3cb371;
 }
 
-.rating-red {
-    color: #ff3b3b;
-    /* red for < 5 */
+.metacritic-lightgreen {
+    background-color: #9acd32;
 }
 
-.rating-neutral {
-    color: #ccc;
-    /* subtle gray for neutral */
+.metacritic-yellow {
+    background-color: #f4c542;
+    color: black;
 }
 
-/* In Stock indicator! */
+.metacritic-red {
+    background-color: #ff4d4d;
+}
+
+.metacritic-na {
+    background-color: #666;
+}
+
+/* In Stock indicator */
 .card_available {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    right: 0;
+    background-color: #c72800;
+    /* bold red */
+    color: #fff;
+    padding: 0.3rem 1rem;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 0 0 0 10px;
     z-index: 1000;
-    height: 3rem;
-    width: 8rem;
-    background-image: linear-gradient(to bottom, #16284e, #a92b2b);
-    border-radius: 50%;
-    transform: rotate(15deg);
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4);
+}
+
+.card_available.not-available {
+    display: none;
+}
+
+.header-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .card_available h5 {
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 1.1rem;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.header-bar h1 {
     color: white;
-  }
-  
-  .card_available.not-available {
-    display: none;
-  }
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    max-width: 680px;
+    /* was 650px */
+    width: 100%;
+    margin: 1.5rem auto;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.25);
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #333;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.search-btn:hover {
+    color: #000;
+}
+
+.no-results {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    padding: 2rem;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
+.pagination-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 999;
+}
+
+.pagination a {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.pagination a:hover {
+    background-color: #eee;
+}
+
+.pagination a.active {
+    background-color: #4285f4;
+    color: #fff;
+    border-color: #4285f4;
+}
+
+.pagination a.disabled {
+    pointer-events: none;
+    background-color: white;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    font-weight: bold;
+}
+
+/* Platform Icons */
+.platform-icons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.platform-icon {
+    width: 2rem;
+    height: auto;
+}
+
+.platform-icon-na {
+    font-size: 1.3rem;
+    color: #ccc;
+}
+
+.card_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
